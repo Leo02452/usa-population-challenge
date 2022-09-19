@@ -1,0 +1,20 @@
+Criar um aplicativo console em nodejs que implemente os seguintes requisitos.
+
+1. Consumir a API (https://datausa.io/api/data?drilldowns=Nation&measures=Population) e gravar o resultado na tabela "api_data" no na coluna "doc_record".
+
+Saida da API:
+{"data":[{"ID Nation":"01000US","Nation":"United States","ID Year":2020,"Year":"2020","Population":326569308,"Slug Nation":"united-states"},...
+
+
+2. Realizar a somatoria da propriedade "Population" dos anos 2020, 2019 e 2018 e appresentar o resultado no console.
+Implememtar desta 2 formas o algoritmo:
+    a. em memoria no nodejs usando map, filter, for etc
+    b. usando SELECT com SUM() no postgres, pode fazer um SELECT inline ou VIEW no banco de dados.
+
+Obrigatório:
+Utilizar as libs já instalas no projeto massivejs e axios.
+Não instalar mais nenhuma outra lib de terceiro e não utilizar TypeScript.
+
+Referencias:
+https://massivejs.org/
+https://axios-http.com/
