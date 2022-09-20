@@ -7,13 +7,13 @@ Saida da API:
 
 
 2. Realizar a somatoria da propriedade "Population" dos anos 2020, 2019 e 2018 e appresentar o resultado no console.
-Implememtar desta 2 formas o algoritmo:
+Implememtar desta duas formas o algoritmo:
     a. em memoria no nodejs usando map, filter, for etc
     b. usando SELECT com SUM() no postgres, pode fazer um SELECT inline ou VIEW no banco de dados.
 
 Obrigatório:
-Utilizar as libs já instalas no projeto massivejs e axios.
-Não instalar mais nenhuma outra lib de terceiro e não utilizar TypeScript.
+Utilizar somente as libs instalas no projeto massivejs e axios.
+Não instalar nenhuma outra lib de terceiro e não utilizar TypeScript.
 
 Referencias:
 https://massivejs.org/
