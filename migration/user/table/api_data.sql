@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS public.api_data (
+CREATE TABLE IF NOT EXISTS ${schema:raw}.api_data (
 	id bigserial NOT NULL,
 	"is_active" bool NOT NULL DEFAULT true,
     "created_at" timestamptz NOT NULL DEFAULT now(),

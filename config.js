@@ -8,6 +8,7 @@ require('dotenv-safe').config({
 
 module.exports = {
   NODE_ENV: process.env.NODE_ENV || 'development',
+  DATABASE_SCHEMA: process.env.DATABASE_SCHEMA || 'public', 
   DATABASE_URL: process.env.DATABASE_URL || '',
   SHOW_PG_MONITOR: process.env.SHOW_PG_MONITOR || 'false',
 }
