@@ -1,6 +1,7 @@
 const { DATABASE_SCHEMA, DATABASE_URL, SHOW_PG_MONITOR } = require('./config');
 const massive = require('massive');
 const monitor = require('pg-monitor');
+const fetchDataUSAAPI = require('./fetchAPI');
 
 // Call start
 (async () => {
@@ -66,15 +67,25 @@ const monitor = require('pg-monitor');
         await migrationUp();
 
         //exemplo de insert
-        const result1 = await db[DATABASE_SCHEMA].api_data.insert({
-            doc_record: { 'a': 'b' },
-        })
-        console.log('result1 >>>', result1);
+        const USAPopulationList = await fetchDataUSAAPI();
+
+        const USAPopulationSum = USAPopulationList.reduce((accumulator, { Year, Population }) => {
+            const validYearsList = ['2020', '2019', '2018']
+            if(validYearsList.includes(Year)) {
+                return accumulator + Population;
+            }
+            return accumulator;
+        }, 0);
+
+        console.log('result1 >>>', USAPopulationSum);
+        await db[DATABASE_SCHEMA].api_data.insert({
+                doc_record: USAPopulationList,
+        });
 
         //exemplo select
-        const result2 = await db[DATABASE_SCHEMA].api_data.find({
-            is_active: true
-        });
+        const result2 = await db[DATABASE_SCHEMA].api_data.query(
+            'SELECT SUM(Population) FROM doc_record WHERE Year IN ("2018", "2019", "2020")'
+        );
         console.log('result2 >>>', result2);
 
     } catch (e) {
